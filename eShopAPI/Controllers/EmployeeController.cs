@@ -16,7 +16,7 @@ namespace eShopAPI.Controllers
         {
             _db = db;
 
-        }
+        } 
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<Employee>> Get()
