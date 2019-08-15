@@ -14,7 +14,7 @@ namespace eShopAPI.Controllers
         private readonly DataContext _db;
         public EmployeeController(DataContext db)
         {
-            _db = db;
+            _db = db; 
 
         } 
         // GET api/values
@@ -35,8 +35,11 @@ namespace eShopAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<Employee> Post([FromBody] Employee emp)
         {
+            _db.Employees.Add(emp);
+            _db.SaveChanges();
+            return Ok(emp);
         }
 
         // PUT api/values/5
