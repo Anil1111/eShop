@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
+
+import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './component/header/header.component';
 import { EmployeeListComponent } from './employee/employeeList/employeeList.component';
-import { routing } from './app.routing';
-import { FormsModule } from '@angular/forms';
+import { AppRouting } from './app.routing';
 
 
 @NgModule({
@@ -19,8 +20,8 @@ import { FormsModule } from '@angular/forms';
    imports: [
       BrowserModule,
       HttpClientModule,
-      routing,
-      FormsModule
+      FormsModule,
+      AppRouting
    ],
    providers: [],
    bootstrap: [

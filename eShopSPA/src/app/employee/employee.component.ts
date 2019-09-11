@@ -9,31 +9,27 @@ import { NgForm } from '@angular/forms';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) {   }
-EmployeeList: any;
+  name ;
+  email ;
+  password ;
 
-insertData ( formData: NgForm) {
+  SaveFormData() {
+    const Employee = {
+      Name: this.name,
+      Email: this.email,
+      Pasword: this.password
+    };
+    this.httpClinet.post('http://localhost:5000/api/employee', Employee)
+    .subscribe(
+      (respose) => {
+      console.log(respose);
+       }
+    );
 
-  const Employee = {
-    id: 0,
-    name: formData.value.name,
-    email: formData.value.email ,
-    pasword: formData.value.pasword
-  };
-
-  this.httpClient.post('http://localhost:5000/api/employee/', Employee)
-  .subscribe(emp => {
-    if (emp) {
-      console.log(emp);
-    }
-  });
   }
+  constructor(private httpClinet: HttpClient) {   }
 
   ngOnInit() {
-   this.httpClient.get('http://localhost:5000/api/employee/').subscribe(respose => {
-     this.EmployeeList = respose;
-     console.log(this.EmployeeList);
-   });
   }
 
 }

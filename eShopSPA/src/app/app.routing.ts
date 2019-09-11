@@ -1,10 +1,18 @@
-import {Routes, RouterModule} from '@angular/router';
-import { EmployeeComponent } from './employee/employee.component';
-import { EmployeeListComponent } from './employee/employeeList/employeeList.component';
 
-const APP_ROUTE: Routes = [
-    {path: '', component: EmployeeComponent},
-    {path: 'list' , component: EmployeeListComponent}
+import {RouterModule, Routes} from '@angular/router';
+import { EmployeeListComponent } from './employee/employeeList/employeeList.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { NgModule } from '@angular/core';
+
+const APP_ROUTES: Routes = [
+    {path: '', component: EmployeeListComponent},
+    {path: 'create', component: EmployeeComponent }
 ];
 
-export const routing = RouterModule.forRoot(APP_ROUTE);
+@NgModule({
+    imports: [RouterModule.forRoot(APP_ROUTES)],
+    exports: [RouterModule]
+})
+export class AppRouting {
+
+}
